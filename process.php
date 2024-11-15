@@ -1,9 +1,9 @@
 <?php
 // Database configuration
-$host = 'localhost'; // Database host
-$dbname = 'your_database_name'; // Replace with your database name
-$username = 'your_username'; // Replace with your database username
-$password = 'your_password'; // Replace with your database password
+$host = 'bowhotels.czptxhzjxjrt.us-east-1.rds.amazonaws.com'; // Database host
+$dbname = 'mybowhotels'; // Replace with your database name
+$username = 'admin'; // Replace with your database username
+$password = 'Jcricket963.$'; // Replace with your database password
 
 // Create a connection
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // SQL query to insert the data into your table
-    $sql = "INSERT INTO your_table_name (firstname, lastname, total, start_date, end_date, email, message) 
+    $sql = "INSERT INTO bookingtable (firstname, lastname, total, start_date, end_date, email, message) 
             VALUES ('$firstname', '$lastname', '$total', '$start_date', '$end_date', '$email', '$message')";
 
     if ($conn->query($sql) === TRUE) {
