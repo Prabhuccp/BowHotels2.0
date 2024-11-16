@@ -1,9 +1,9 @@
 <?php
 // Database configuration
-$host = 'bowhotels.czptxhzjxjrt.us-east-1.rds.amazonaws.com'; // Database host
-$dbname = 'mybowhotels'; // Replace with your database name
-$username = 'admin'; // Replace with your database username
-$password = 'Jcricket963.$'; // Replace with your database password
+$host = 'localhost'; // Database host
+$dbname = 'your_database_name'; // Replace with your database name
+$username = 'your_username'; // Replace with your database username
+$password = 'your_password'; // Replace with your database password
 
 // Create a connection
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -13,24 +13,33 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Identify the form type
+$form_type = $_POST['form_type'];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+
 // Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($form_type == 'booking_form')
+
+        // Validate start and end date
+        if (strtotime($start_date) > strtotime($end_date)) {
+            die("Error: Start date must be before end date.");
+        }
+ {
     // Collect form data
-    $firstname = $conn->real_escape_string($_POST['firstname']);
-    $lastname = $conn->real_escape_string($_POST['lastname']);
+    $name = $conn->real_escape_string($_POST['firstname']);
     $total = $conn->real_escape_string($_POST['total']);
     $start_date = $conn->real_escape_string($_POST['start-date']);
     $end_date = $conn->real_escape_string($_POST['end-date']);
     $email = $conn->real_escape_string($_POST['email']);
+    $phone = $conn->real_escape_string($_POST['phone']);
     $message = $conn->real_escape_string($_POST['message']);
 
-    // Validate start and end date
-    if (strtotime($start_date) > strtotime($end_date)) {
-        die("Error: Start date must be before end date.");
-    }
+
 
     // SQL query to insert the data into your table
-    $sql = "INSERT INTO bookingtable (firstname, lastname, total, start_date, end_date, email, message) 
+    $sql = "INSERT INTO your_table_name (firstname, lastname, total, start_date, end_date, email, message) 
             VALUES ('$firstname', '$lastname', '$total', '$start_date', '$end_date', '$email', '$message')";
 
     if ($conn->query($sql) === TRUE) {
@@ -42,6 +51,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
+
+} elseif($form_type == 'contact_form'){
+
+    $name = $conn->real_escape_string($_POST['name']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $phone = $conn->real_escape_string($_POST['phone']);
+    $query = $conn->real_escape_string($_POST['query']);
+
+    // SQL query to insert data into the database
+    $sql = "INSERT INTO contact_table (name, email, phone, query) VALUES ('$name', '$email', '$phone', '$query')";
+
+    // Execute the query
+    if ($conn->query($sql) === TRUE) {
+        echo "Thank you! Your details have been saved successfully.";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
 
 // Close the database connection
 $conn->close();
