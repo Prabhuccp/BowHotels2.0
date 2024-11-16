@@ -519,7 +519,10 @@ img {
 }
 
 .form-group label {
-   display: none;
+   display: block;
+   font-size: 16px;
+   color: #333; /* Ensure label has a visible color */
+   margin-bottom: 5px; /* Add spacing between label and input */
 }
 
 .contact .btn {
