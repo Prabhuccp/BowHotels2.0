@@ -271,41 +271,43 @@
             <div class="column-2 bg-light">
                <h2>Please fill out the information below to make a reservation!</h2>
 
-               <form id="contact-form" action="process.php" method="POST">
+               <form id="booking-form" action="process.php" method="POST">
+
+                  <input type="hidden" name="form_type" value="booking_form">
 
                   <div class="form-group">
-                    <label for="name">Enter First Name</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Enter First Name" required>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="fname" name="firstname" required>
                   </div>
-                
+         
                   <div class="form-group">
-                    <label for="name">Enter Last Name</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Enter Last Name" required>
-                  </div>
-                
-                  <div class="form-group">
-                    <label for="total">Total number of people</label>
-                    <input type="text" id="total" name="total" placeholder="Total Members" required>
+                    <label for="total">Number of Guests</label>
+                    <input type="text" id="total" name="total" required>
                   </div>
                 
                   <div class="form-group">
                     <label for="start-date">Start Date:</label>
-                    <input type="date" id="start-date" name="start-date" required>
+                    <input type="date" id="start-date" name="start-date" required >
                   </div>
                   
                   <div class="form-group">
                     <label for="end-date">End Date:</label>
-                    <input type="date" id="end-date" name="end-date" required>
+                    <input type="date" id="end-date" name="end-date" required >
                   </div>
                 
                   <div class="form-group">
-                    <label for="email">Enter Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter email" required>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
                   </div>
+
+                  <div class="form-group">
+                     <label for="Phone"> Phone Number</label>
+                     <input type="tel" id="phone" name="phone" required>
+                   </div>
                 
                   <div class="form-group">
-                    <label for="message">Say something nice to us</label>
-                    <input type="text" id="message" name="message" placeholder="Additional Instructions" required>
+                    <label for="message">Additional Instructions</label>
+                    <input type="text" id="message" name="message" required>
                   </div>
                 
                   <p>Submit this form for a TOP SECRET PAGE!!! <i class="fas fa-cat"></i></p>
@@ -471,13 +473,42 @@
 
          <div class="column">
             <div class="column-2 bg-light">
-               <h2>Contact Us</h2>
-                  <p class="contactdet">
-                      <b>Bow Hotel Ltds</b><br>
-                      <b>123 Vacation Lane, Suite 100</b><br>
-                      <b>banff, Alberta Canada</b><br>
-                      <b>+971 55 123 4567</b>
-                  </p>
+               <h2>How can we help?</h2>
+
+               <form id="contact-form" action="process.php" method="POST">
+
+                  <input type="hidden" name="form_type" value="contact_form">
+
+                  <div class="form-group">
+                    <label for="name">Enter Name</label>
+                    <input type="text" id="fname" name="name" required>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="email">Enter Email</label>
+                    <input type="email" id="email" name="email" required>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="Phone number">Enter phonenumber</label>
+                     <input type="tel" id="phone" name="phone" required>
+                   </div>
+                
+                  <div class="form-group">
+                    <label for="message">What’s on Your Mind?</label>
+                    <input type="text" id="query" name="query"required>
+                  </div>
+                
+                  <p>Sit back and relax – We’ll reach out to you shortly!!!  <i class="fas fa-cat"></i></p>
+                
+                  <div class="form-group">
+                    <div data-netlify-recaptcha="true"></div>
+                  </div>
+                
+                  <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
+
+
             </div>
          </div>
       </div>
