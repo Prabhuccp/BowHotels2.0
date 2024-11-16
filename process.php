@@ -30,8 +30,8 @@ if ($form_type == 'booking_form')
     // Collect form data
     $name = $conn->real_escape_string($_POST['firstname']);
     $total = $conn->real_escape_string($_POST['total']);
-    $start_date = $conn->real_escape_string($_POST['start-date']);
-    $end_date = $conn->real_escape_string($_POST['end-date']);
+    $start_date = $conn->real_escape_string($_POST['start_date']);
+    $end_date = $conn->real_escape_string($_POST['end_date']);
     $email = $conn->real_escape_string($_POST['email']);
     $phone = $conn->real_escape_string($_POST['phone']);
     $message = $conn->real_escape_string($_POST['message']);
@@ -39,8 +39,8 @@ if ($form_type == 'booking_form')
 
 
     // SQL query to insert the data into your table
-    $sql = "INSERT INTO bookingtable (firstname, lastname, total, start_date, end_date, email, message) 
-            VALUES ('$firstname', '$lastname', '$total', '$start_date', '$end_date', '$email', '$message')";
+    $sql = "INSERT INTO bookingtable (firstname, total, start_date, end_date, email, message) 
+            VALUES ('$firstname', '$total', '$start_date', '$end_date', '$email', '$message')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Data submitted successfully!";
