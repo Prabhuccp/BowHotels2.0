@@ -39,8 +39,8 @@ if ($form_type == 'booking_form')
 
 
     // SQL query to insert the data into your table
-    $sql = "INSERT INTO bookingtable (firstname, total, start_date, end_date, email, message) 
-            VALUES ('$firstname', '$total', '$start_date', '$end_date', '$email', '$message')";
+    $sql = "INSERT INTO bookingtable (firstname, total, start_date, end_date, email, phone, message) 
+            VALUES ('$firstname', '$total', '$start_date', '$end_date', '$email', $phone, '$message')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Data submitted successfully!";
