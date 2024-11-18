@@ -1,6 +1,6 @@
 <?php
 // Database configuration
-$host = 'bowhotels.czptxhzjxjrt.us-east-1.rds.amazonaws.com'; // Database host
+$host = 'group3bow.czptxhzjxjrt.us-east-1.rds.amazonaws.com'; // Database host
 $dbname = 'mybowhotels'; // Replace with your database name
 $username = 'admin'; // Replace with your database username
 $password = 'Jcricket963.$'; // Replace with your database password
